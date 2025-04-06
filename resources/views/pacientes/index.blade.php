@@ -34,6 +34,7 @@
             <th>Número</th>
             <th>Bairro</th>
             <th>Cidade</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -52,7 +53,7 @@
             <td>{{ $p->bairro }}</td>
             <td>{{ $p->cidade }}</td>
             <td>
-                <a href="/pacientes/{{ $p->id }}/edit" class="btn btn-warning mb-2">Editar</a>
+                <a href="/pacientes/{{ $p->id }}/edit" class="btn btn-warning mb-1">Editar</a>
                 <a href="/pacientes/{{ $p->id }}" class="btn btn-info">Consultar</a>
             </td>
         </tr>
