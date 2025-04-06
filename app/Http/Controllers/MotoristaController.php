@@ -75,7 +75,7 @@ class MotoristaController extends Controller
         } catch (Exception $e){
             Log::error("Erro ao editar o cadastro do motorista: ".$e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
-                'produto_id' => $id,
+                'motorista_id' => $id,
                 'request' => $request->all()
             ]);
             return redirect()->route('motoristas.index')->with('erro', 'Erro ao editar!');
