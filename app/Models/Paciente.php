@@ -11,9 +11,4 @@ class Paciente extends Model
 
     protected $fillable = ['nome', 'cns', 'cpf', 'celular', 'email', 'dataNasc', 'logradouro', 'numero', 'bairro', 'cidade'];
 
-    public function paciente()
-    {
-        return $this->belongsTo(paciente::class);
-    }
-
 }
