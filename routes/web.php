@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\VeiculoController;
+use App\Models\Veiculo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('inicio');
 });
+
+route::resource("veiculos", VeiculoController::class);
