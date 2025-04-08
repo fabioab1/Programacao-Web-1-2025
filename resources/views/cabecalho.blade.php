@@ -9,6 +9,30 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Início</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuários
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/cargos">Cargos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/pacientes">Pacientes</a></li>
+                        <li><a class="dropdown-item" href="/motoristas">Motoristas</a></li>
+                        <li><a class="dropdown-item" href="/administradores">Administradores</a></li>
+                    </ul>
+
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Viagens
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/pontos">Pontos</a></li>
+                        <li><a class="dropdown-item" href="/cidades">Cidades</a></li>
+                        <li><a class="dropdown-item" href="/veiculos">Veiculos</a></li>
+                    </ul>
+
+                </li>
             </ul>
         </div>
     </div>

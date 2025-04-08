@@ -27,6 +27,7 @@
 			<th>Logradouro</th>
 			<th>Bairro</th>
 			<th>Referência</th>
+			<th>Ações</th>
 		</tr>
 	</thead>
 	<tbody>

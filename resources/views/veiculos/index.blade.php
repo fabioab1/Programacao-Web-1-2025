@@ -33,6 +33,7 @@
 			<th>Cor</th>
 			<th>Capacidade</th>
 			<th>Situação</th>
+			<th>Ações</th>
 		</tr>
 	</thead>
 	<tbody>
