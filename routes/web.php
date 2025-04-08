@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MotoristaController;
 use App\Http\Controllers\VeiculoController;
 use App\Models\Veiculo;
 use App\Http\Controllers\AdministradorController;
@@ -24,10 +25,9 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+Route::resource("motoristas", MotoristaController::class);
 route::resource("veiculos", VeiculoController::class);
-=======
 Route::resource('pacientes', PacienteController::class);
-=======
 Route::resource('administradores', AdministradorController::class);
 Route::resource('cidades', CidadeController::class);
 Route::resource('cargos', CargoController::class);
