@@ -20,4 +20,5 @@ Route::get('/', function () {
 });
 
 
+
 route::resource("veiculos", VeiculoController::class);
