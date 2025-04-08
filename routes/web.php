@@ -18,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('inicio');
 });
+
+
 route::resource("veiculos", VeiculoController::class);
