@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PontoController;
+use App\Http\Controllers\PacienteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +19,4 @@ Route::get('/', function () {
     return view('inicio');
 });
 Route::resource('pontos', PontoController::class);
+Route::resource('pacientes', PacienteController::class);
