@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\VeiculoController;
+use App\Models\Veiculo;
 use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\CidadeController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,10 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+route::resource("veiculos", VeiculoController::class);
+=======
+Route::resource('pacientes', PacienteController::class);
+=======
 Route::resource('administradores', AdministradorController::class);
 Route::resource('cidades', CidadeController::class);
 Route::resource('cargos', CargoController::class);
