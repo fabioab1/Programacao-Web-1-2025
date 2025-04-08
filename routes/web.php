@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\VeiculoController;
 use App\Models\Veiculo;
+use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\CidadeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CargoController;
+use App\Http\Controllers\PontoController;
 use App\Http\Controllers\PacienteController;
 
 /*
@@ -22,4 +26,10 @@ Route::get('/', function () {
 
 route::resource("veiculos", VeiculoController::class);
 =======
+Route::resource('pacientes', PacienteController::class);
+=======
+Route::resource('administradores', AdministradorController::class);
+Route::resource('cidades', CidadeController::class);
+Route::resource('cargos', CargoController::class);
+Route::resource('pontos', PontoController::class);
 Route::resource('pacientes', PacienteController::class);
