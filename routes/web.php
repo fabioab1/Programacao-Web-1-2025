@@ -16,5 +16,4 @@ use App\Http\Controllers\PontoController;
 Route::get('/', function () {
     return view('inicio');
 });
-
 Route::resource('pontos', PontoController::class);
