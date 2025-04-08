@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\PontoController;
+use App\Http\Controllers\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::resource('cargos', CargoController::class);
+Route::resource('pontos', PontoController::class);
+Route::resource('pacientes', PacienteController::class);

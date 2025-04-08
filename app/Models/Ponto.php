@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ponto extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'logradouro',
+        'bairro',
+        'referencia',
+    ];
 }
