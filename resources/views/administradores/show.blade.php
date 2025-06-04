@@ -33,9 +33,7 @@
         <input type="email" id="email" name="email" value="{{ $administrador->email }}" class="form-control" required="" disabled>
     </div>
 
-    <p>Deseja excluir o registro?</p>
-    <button type="submit" class="btn btn-danger">Excluir</button>
-    <a href="/administradores" class="btn btn-primary">Cancelar</a>
+    <a href="/administradores" class="btn btn-primary">Voltar</a>
 </form>
 
 @endsection

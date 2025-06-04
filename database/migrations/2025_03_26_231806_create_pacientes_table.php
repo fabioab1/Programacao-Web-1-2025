@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cns', 15);
             $table->string('cpf', 11);
             $table->string('celular', 15);
-            $table->string('email', 80);
+            $table->string('email', 80)->unique();
             $table->date('dataNasc');
             $table->string('logradouro',60);
             $table->integer('numero');

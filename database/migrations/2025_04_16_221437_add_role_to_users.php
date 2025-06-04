@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('motoristas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome', 100);
-            $table->string('celular', 15);
-            $table->string('email', 80)->unique();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', ['ADM', 'MOT', 'PAC'])->default('PAC');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('motoristas');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

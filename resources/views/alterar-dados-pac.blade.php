@@ -2,7 +2,9 @@
 
 @section('conteudo')
 
-<form method="post" action="/pacientes/{{ $paciente->id }}">
+<h2>Alterar dados</h2>
+
+<form method="post" action="/alterar-dados/paciente/update">
 
     @csrf
     @method('PUT')

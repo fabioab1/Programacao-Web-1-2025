@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class PacienteController extends Controller
 {
@@ -32,9 +35,17 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         try{
-            Paciente::create($request->all());
+            $dados = $request->all();
+            $user['name'] = $request->input('nome');
+            $user['email'] = $request->input('email');
+            $user['password'] = Hash::make($dados['password']);
+            $user['role'] = 'PAC';
+            $user = User::create($user);
+            $dados['user_id'] = $user->id;
+            Paciente::create($dados);
             return redirect()->route('pacientes.index')
-                ->with('sucesso', 'Paciente cadastrado com sucesso!');
+                    ->with('sucesso', 'Paciente cadastrado com sucesso!');
+
         } catch (Exception $e){
             Log::error("Erro ao cadastrar o paciente: ". $e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
@@ -71,6 +82,11 @@ class PacienteController extends Controller
         try{
             $paciente = Paciente::findOrFail($id);
             $paciente->update($request->all());
+            $user = User::findOrFail($paciente->user_id);
+            $user->name = $request->input['nome'];
+            $user->email = $request->input['email'];
+            $user->password = $request->input['password'];
+            $user->save();
             return redirect()->route('pacientes.index')->with('sucesso', 'Cadastro editado com sucesso!');
         } catch (Exception $e){
             Log::error("Erro ao editar o cadastro do paciente: ". $e->getMessage(), [

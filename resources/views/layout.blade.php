@@ -10,7 +10,9 @@
 
 <body>
 
-    @include('cabecalho')
+    @if(Auth::user())
+        @include('cabecalho')
+    @endif
 
     <div class="container my-4">
         @yield('conteudo')

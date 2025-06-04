@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<form method="post" action="/motoristas/{{ $motorista->id }}">
+<form method="post" action="/alterar-dados/motorista/store">
 
     @csrf
     @method('PUT')

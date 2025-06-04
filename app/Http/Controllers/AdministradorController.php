@@ -7,6 +7,9 @@ use App\Models\Administradores;
 use App\Models\Cargo;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AdministradorController extends Controller
 {
@@ -34,7 +37,14 @@ class AdministradorController extends Controller
     public function store(Request $request)
     {
         try{
-            Administradores::create($request->all());
+            $dados = $request->all();
+            $user['name'] = $request->input('nome');
+            $user['email'] = $request->input('email');
+            $user['password'] = Hash::make($dados['password']);
+            $user['role'] = 'ADM';
+            $user = User::create($user);
+            $dados['user_id'] = $user->id;
+            Administradores::create($dados);
             return redirect()->route('administradores.index')
                 ->with('sucesso', 'Administrador cadastrado com sucesso!');
         } catch (Exception $e){
@@ -75,6 +85,11 @@ class AdministradorController extends Controller
         try{
             $administrador = Administradores::findOrFail($id);
             $administrador->update($request->all());
+            $user = User::findOrFail($administrador->user_id);
+            $user->name = $request->input['nome'];
+            $user->email = $request->input['email'];
+            $user->password = $request->input['password'];
+            $user->save();
             return redirect()->route('administradores.index')->with('sucesso', 'Cadastro editado com sucesso!');
         } catch (Exception $e){
             Log::error("Erro ao editar o cadastro do administrador: ".$e->getMessage(), [

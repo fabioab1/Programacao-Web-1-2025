@@ -41,7 +41,6 @@
             <td>{{ $a->celular }}</td>
             <td>{{ $a->email }}</td>
             <td>
-                <a href="/administradores/{{ $a->id }}/edit" class="btn btn-warning">Editar</a>
                 <a href="/administradores/{{ $a->id }}" class="btn btn-info">Consultar</a>
             </td>
         </tr>

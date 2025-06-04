@@ -32,7 +32,12 @@
         <input type="email" id="email" name="email" class="form-control" required="">
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="mb-3">
+        <label for="password" class="form-label">Solicite que o administrador informe sua senha:</label>
+        <input type="password" id="password" name="password" class="form-control" required="">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 
 @endsection

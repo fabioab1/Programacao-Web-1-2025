@@ -9,6 +9,6 @@ class Motorista extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'celular', 'email'];
+    protected $fillable = ['nome', 'celular', 'email', 'user_id'];
 
 }

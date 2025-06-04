@@ -2,9 +2,9 @@
 
 @section('conteudo')
 
-<h2>Criar uma conta de paciente</h2>
+<h2>Criar uma conta</h2>
 
-<form method="post" action="/pacientes">
+<form method="post" action="/cadastro/pacientes/store">
 
     @csrf
 
@@ -63,7 +63,10 @@
         <input type="text" id="cidade" name="cidade" class="form-control" required="">
     </div>
 
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-primary ">Criar</button>
+        <a href="/login" class="btn btn-secondary">Voltar</a>
+    </div>
 </form>
 
 @endsection

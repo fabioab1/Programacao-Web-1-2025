@@ -9,7 +9,7 @@ class Administradores extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'cargo_id', 'celular', 'email'];
+    protected $fillable = ['nome', 'cargo_id', 'celular', 'email', 'user_id'];
 
     public function cargo()
     {

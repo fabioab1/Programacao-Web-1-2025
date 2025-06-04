@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome', 100);
             $table->unsignedBigInteger('cargo_id');
             $table->string('celular', 15);
-            $table->string('email', 80);
+            $table->string('email', 80)->unique();
             $table->foreign('cargo_id')->references('id')->on('cargos')->onDelete('restrict');
             $table->timestamps();
         });
