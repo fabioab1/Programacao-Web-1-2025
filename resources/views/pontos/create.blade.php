@@ -21,7 +21,7 @@
 		<textarea id="referencia" name="referencia" class="form-control" maxlength="255" required=""></textarea>
 	</div>
 
-	<button type="submit" class="btn btn-primary">Enviar</button>
+	<button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 
 @endsection

@@ -4,7 +4,7 @@
 
 <h2>Alterar dados</h2>
 
-<form method="post" action="/alterar-dados/paciente/update">
+<form method="post" action="/alterar-dados/paciente/update/{{$paciente->id}}">
 
     @csrf
     @method('PUT')
