@@ -14,6 +14,7 @@ use App\Http\Controllers\PontoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\EditarMotoristaController;
 use App\Http\Controllers\SolicitacaoController;
+use App\Http\Controllers\HomeMotController;
 use App\Http\Middleware\RoleAdmMiddleware;
 use App\Http\Middleware\RoleMotMiddleware;
 use App\Http\Middleware\RolePacMiddleware;
@@ -68,18 +69,19 @@ Route::middleware("auth")->group(function () {
         Route::resource('pontos', PontoController::class);
         Route::resource('pacientes', PacienteController::class);
     });
-    
+############################################################################################
     Route::middleware([RoleMotMiddleware::class])->group(function (){
         Route::get('/inicio-mot', function() {
             return view('inicio-mot');
         });
+        Route::get('/relatorio-motorista', [HomeMotController::class, 'gerarRelatorio']);
     });
 
+#############################################################################################
     Route::middleware([RolePacMiddleware::class])->group(function (){
         Route::get('/inicio-pac', function() {
             return view("inicio-pac");
         })->name('inicio-pac');
-        Route::resource("solicitacoes", SolicitacaoController::class);
     });
     
 });
