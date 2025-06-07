@@ -29,6 +29,10 @@ use App\Http\Middleware\RolePacMiddleware;
 |
 */
 
+Route::get('/', function() {
+    return view('home');
+});
+
 Route::get('/login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 

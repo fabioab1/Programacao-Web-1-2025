@@ -22,7 +22,7 @@ class AuthController extends Controller
             else if ($user->role == "MOT")
                 return redirect()->intended('/inicio-mot');
             else
-                return redirect()->intended('inicio-pac');
+                return redirect()->intended('/inicio-pac');
         }
 
         return back()->withErrors([
