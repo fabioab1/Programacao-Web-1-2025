@@ -3,6 +3,7 @@
 use App\Http\Controllers\MotoristaController;
 use App\Http\Controllers\VeiculoController;
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\AlterarAdminController;
 use App\Http\Controllers\AlterarPacienteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CadastroPacienteController;
@@ -12,7 +13,7 @@ use App\Http\Controllers\CargoController;
 use App\Http\Controllers\PontoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\EditarMotoristaController;
-
+use App\Http\Controllers\SolicitacaoController;
 use App\Http\Middleware\RoleAdmMiddleware;
 use App\Http\Middleware\RoleMotMiddleware;
 use App\Http\Middleware\RolePacMiddleware;
@@ -30,8 +31,22 @@ use App\Http\Middleware\RolePacMiddleware;
 
 Route::get('/login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+
 Route::get('/cadastro/pacientes', [CadastroPacienteController::class, 'create']);
 Route::post('/cadastro/pacientes/store', [CadastroPacienteController::class, 'store']);
+
+Route::get('/alterar-dados/paciente/{id}', [AlterarPacienteController::class, 'edit'])
+    ->middleware(RolePacMiddleware::class);
+
+Route::put('/alterar-dados/paciente/update/{id}', [AlterarPacienteController::class, 'update'])
+    ->middleware(RolePacMiddleware::class);
+
+Route::get('/alterar-dados/admin/{id}', [AlterarAdminController::class, 'edit'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/alterar-dados/admin/update/{id}', [AlterarAdminController::class, 'update'])
+    ->middleware(RoleAdmMiddleware::class);
+
 
 Route::middleware("auth")->group(function () {
     
@@ -40,7 +55,7 @@ Route::middleware("auth")->group(function () {
     Route::middleware([RoleAdmMiddleware::class])->group(function (){
         Route::get('/inicio', function () {
             return view('inicio');
-        });
+        })->name('inicio');
         Route::resource("motoristas", MotoristaController::class);
         Route::resource("veiculos", VeiculoController::class);
         Route::resource('administradores', AdministradorController::class);
@@ -59,9 +74,8 @@ Route::middleware("auth")->group(function () {
     Route::middleware([RolePacMiddleware::class])->group(function (){
         Route::get('/inicio-pac', function() {
             return view("inicio-pac");
-        });
-        Route::get('/alterar-dados/paciente/{id}', [AlterarPacienteController::class, 'edit']);
-        Route::post('/alterar-dados/paciente/update', [AlterarPacienteController::class, 'update']);
+        })->name('inicio-pac');
+        Route::resource("solicitacoes", SolicitacaoController::class);
     });
     
 });

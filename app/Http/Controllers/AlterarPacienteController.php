@@ -7,14 +7,12 @@ use App\Models\Paciente;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 
 class AlterarPacienteController extends Controller
 {
-    public function edit(string $id)
+    public function edit($id)
     {
-        $paciente = Paciente::findOrFail($id);
+        $paciente = Paciente::where('user_id', $id)->first();
         return view ("alterar-dados-pac", compact('paciente'));
     }
 

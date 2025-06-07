@@ -2,9 +2,9 @@
 
 @section('conteudo')
 
-<h1>Gerenciar Veículos</h1>
+<h1>Veículos</h1>
 
-<a class="btn btn-primary mb-3" href="/veiculos/create">Novo Veículo</a>
+<a class="btn btn-primary mb-3" href="/veiculos/create">Cadastrar veículo</a>
 
 @if (session('erro'))
 <div class="alert alert-danger">
@@ -18,7 +18,7 @@
 </div>
 @endif
 
-<h2>Registro de Veículos</h2>
+<h2>Registro de veículos</h2>
 
 <table class="table table-hover table-striped">
 	<thead>

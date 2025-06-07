@@ -66,7 +66,7 @@
                             Viagens
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/cargos">Solicitações</a></li>
+                            <li><a class="dropdown-item" href="/solicitacoes">Solicitações</a></li>
                         </ul>
                     </li>
                 @endif
@@ -77,7 +77,7 @@
                         Meu perfil
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/administradores/{{ Auth::user()->id }}/edit">Alterar dados</a></li>
+                        <li><a class="dropdown-item" href="/alterar-dados/admin/{{ Auth::user()->id }}">Alterar dados</a></li>
                     </ul>
                 </div>
             @endif
