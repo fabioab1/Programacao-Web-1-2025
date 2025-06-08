@@ -66,4 +66,12 @@ class SolicitacaoAdmController extends Controller
                 ->with('erro', 'Erro ao recusar a solicitação!');
         }
     }
+
+    public function consultar(string $id)
+    {
+        $solicitacao = Solicitacao::with(['viagem.cidade', 'viagem.motorista', 'viagem.motorista', 'viagem.veiculo'])->findOrFail($id);
+        $pontos = Ponto::all();
+
+        return view("solicitacoes-adm.show", compact('solicitacao', 'pontos'));
+    }
 }

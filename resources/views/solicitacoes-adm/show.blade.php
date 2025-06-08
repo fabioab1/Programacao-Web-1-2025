@@ -74,10 +74,9 @@
 @endif
 
 
-<form method="post" action="/solicitacoes/{{ $solicitacao->id }}">
+<form method="post">
 
     @csrf
-    @method('DELETE')
 
     <div class="mb-3">
         <label for="data" class="form-label">Data da viagem:</label>
@@ -122,9 +121,7 @@
         @endif
     </div>
 
-    <p>Deseja excluir o registro?</p>
-    <button type="submit" class="btn btn-danger" {{ $solicitacao->situacao == "Solicitação aceita" ? "disabled" : "" }}>Excluir</button>
-    <a href="/solicitacoes" class="btn btn-primary">Cancelar</a>
+    <a href="/aceitar-solicitacoes" class="btn btn-primary">Voltar</a>
 </form>
 
 @endsection
