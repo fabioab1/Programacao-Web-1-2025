@@ -33,6 +33,7 @@
 			<th>Horário de embarque</th>
 			<th>Horário de saída</th>
 			<th>Horário de chegada</th>
+			<th>Pontos</th>
             <!--- Pontos de embarque e desembarque da viagem serão exibidos ao
             consultar a viagem --->
 			<th>Ações</th>
@@ -56,9 +57,11 @@
 			<td>{{ $v->horario_saida }}</td>
 			<td>{{ $v->horario_chegada }}</td>
 			<td>
-				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-secondary mb-1">Pontos</a>
+				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-secondary mb-1">Adicionar</a>
+			</td>
+			<td>
 				<a href="/viagens/{{ $v->id }}/edit" class="btn btn-warning mb-1">Editar</a>
-				<a href="/viagens/{{ $v->id }}" class="btn btn-info">Consultar</a>
+				<a href="/viagens/{{ $v->id }}" class="btn btn-info mb-1">Consultar</a>
 			</td>
 		</tr>
 		@endforeach
