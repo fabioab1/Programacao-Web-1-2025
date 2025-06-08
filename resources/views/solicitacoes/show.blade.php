@@ -42,22 +42,22 @@
 
         <div class="mb-2">
             @php
-                $dias = [];
-                if($solicitacao->viagem->domingo) $dias[] = 'Domingo';
-                if($solicitacao->viagem->segunda) $dias[] = 'Segunda-feira';
-                if($solicitacao->viagem->terca) $dias[] = 'Terça-feira';
-                if($solicitacao->viagem->quarta) $dias[] = 'Quarta-feira';
-                if($solicitacao->viagem->quinta) $dias[] = 'Quinta-feira';
-                if($solicitacao->viagem->sexta) $dias[] = 'Sexta-feira';
-                if($solicitacao->viagem->sabado) $dias[] = 'Sábado';
+            $dias = [];
+            if($solicitacao->viagem->domingo) $dias[] = 'Domingo';
+            if($solicitacao->viagem->segunda) $dias[] = 'Segunda-feira';
+            if($solicitacao->viagem->terca) $dias[] = 'Terça-feira';
+            if($solicitacao->viagem->quarta) $dias[] = 'Quarta-feira';
+            if($solicitacao->viagem->quinta) $dias[] = 'Quinta-feira';
+            if($solicitacao->viagem->sexta) $dias[] = 'Sexta-feira';
+            if($solicitacao->viagem->sabado) $dias[] = 'Sábado';
             @endphp
             <p><strong>Dias da semana:</strong>
                 @if (count($dias) > 0)
-                    @foreach ($dias as $dia)
-                        <span class="badge bg-secondary me-1">{{ $dia }}</span>
-                    @endforeach
+                @foreach ($dias as $dia)
+                <span class="badge bg-secondary me-1">{{ $dia }}</span>
+                @endforeach
                 @else
-                    ---
+                ---
                 @endif
             </p>
         </div>
@@ -139,9 +139,25 @@
     <div class="mb-3">
         <p class="form-label">Foto do exame</p>
         @if ($solicitacao->foto)
-        <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" style="max-width: 150px;" />
+        <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" style="max-width: 150px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalImagem">
         @endif
     </div>
+
+    @if ($solicitacao->foto)
+    <div class="modal fade" id="modalImagem" tabindex="-1" aria-labelledby="modalImagemLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalImagemLabel">Visualizar exame</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" class="img-fluid rounded shadow" style="max-height: 80vh;">
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 
     <p>Deseja excluir o registro?</p>
     <button type="submit" class="btn btn-danger" {{ $solicitacao->situacao == "Solicitação aceita" ? "disabled" : "" }}>Excluir</button>

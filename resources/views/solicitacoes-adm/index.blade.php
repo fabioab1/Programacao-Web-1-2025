@@ -86,7 +86,7 @@
                                     <select id="viagem" name="viagem_id" class="form-select" required="">
                                         @foreach ($viagens as $v)
                                         <option value="{{ $v->id }}">
-                                            {{ $v->cidade->nome }} - {{ $v->motorista->nome }} - {{ $v->veiculo->placa }} - {{ $v->veiculo->modelo }}
+                                            {{ $v->cidade->nome }} - {{ $v->horario_saida }} - {{ $v->motorista->nome }} - {{ $v->veiculo->placa }} - {{ $v->veiculo->modelo }}
                                         </option>
                                         @endforeach
                                     </select>

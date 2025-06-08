@@ -138,9 +138,25 @@
     <div class="mb-3">
         <p class="form-label">Foto do exame</p>
         @if ($solicitacao->foto)
-        <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" style="max-width: 150px;" />
+        <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" style="max-width: 150px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalImagem">
         @endif
     </div>
+
+    @if ($solicitacao->foto)
+    <div class="modal fade" id="modalImagem" tabindex="-1" aria-labelledby="modalImagemLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalImagemLabel">Visualizar exame</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="{{ asset('storage/'.$solicitacao->foto) }}" alt="Foto do exame" class="img-fluid rounded shadow" style="max-height: 80vh;">
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 
     <a href="/aceitar-solicitacoes" class="btn btn-primary">Voltar</a>
 </form>
