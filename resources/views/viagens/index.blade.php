@@ -56,8 +56,8 @@
 			<td>{{ $v->horario_saida }}</td>
 			<td>{{ $v->horario_chegada }}</td>
 			<td>
-				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-secondary">Pontos</a>
-				<a href="/viagens/{{ $v->id }}/edit" class="btn btn-warning">Editar</a>
+				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-secondary mb-1">Pontos</a>
+				<a href="/viagens/{{ $v->id }}/edit" class="btn btn-warning mb-1">Editar</a>
 				<a href="/viagens/{{ $v->id }}" class="btn btn-info">Consultar</a>
 			</td>
 		</tr>

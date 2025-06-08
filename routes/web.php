@@ -55,6 +55,13 @@ Route::put('/alterar-dados/admin/update/{id}', [AlterarAdminController::class, '
     ->middleware(RoleAdmMiddleware::class);
 
 Route::get('/pontos-viagem/{id}', [PontosViagemController::class, 'pontosv'])
+    ->name('vpontos')
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::post('/pontos-viagem/adicionar', [PontosViagemController::class, 'store'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/pontos-viagem/remover/{id}', [PontosViagemController::class, 'destroy'])
     ->middleware(RoleAdmMiddleware::class);
 
 Route::middleware("auth")->group(function () {

@@ -14,22 +14,25 @@ class PontosViagemController extends Controller
 {
     public function pontosv(string $id)
     {
-        $pontosViagem = PontosViagem::where('viagem_id', $id)->get();
-        return view('viagens.pontos', compact('pontosViagem'));
+        $pontos = Ponto::all();
+        $pontosViagem = PontosViagem::with('ponto', 'viagem')
+            ->where('viagem_id', $id)
+            ->get();
+        return view('viagens.pontos', compact('pontosViagem', 'pontos', 'id'));
     }
 
     public function store(Request $request)
     {
         try {
             PontosViagem::create($request->all());
-            return redirect()->route('vpontos')
+            return redirect()->route('vpontos', ['id' => $request->viagem_id])
                 ->with('sucesso', 'Ponto adicionado com sucesso!');
         } catch (Exception $e) {
             Log::error('Erro ao adicionar o ponto: ' . $e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
                 'request' => $request->all()
             ]);
-            return redirect()->route('vpontos')
+            return redirect()->route('vpontos', ['id' => $request->viagem_id])
                 ->with('erro', 'Erro ao adicionar o ponto!');
         }
     }
@@ -38,14 +41,14 @@ class PontosViagemController extends Controller
         try {
             $pontoViagem = PontosViagem::findOrFail($id);
             $pontoViagem->delete();
-            return redirect()->route('vpontos')
+            return redirect()->route('vpontos', 'id')
                 ->with('sucesso', 'Ponto removido com sucesso!');
         } catch (Exception $e) {
             Log::error('Erro ao remover o ponto: ' . $e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
                 'pontov_id' => $id
             ]);
-            return redirect()->route('vpontos')
+            return redirect()->route('vpontos', 'id')
                 ->with('erro', 'Erro ao remover!');
         } 
     }
