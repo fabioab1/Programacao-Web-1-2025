@@ -24,12 +24,15 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Viagens
+                            Transporte
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/pontos">Pontos</a></li>
                             <li><a class="dropdown-item" href="/cidades">Cidades</a></li>
                             <li><a class="dropdown-item" href="/veiculos">Veiculos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/veiculos">Solicitações</a></li>
+                            <li><a class="dropdown-item" href="/viagens">Viagens</a></li>
                         </ul>
                     </li>
                 @endif
@@ -49,7 +52,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Viagens
+                            Transporte
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/veiculos">Veiculos</a></li>
@@ -63,7 +66,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Viagens
+                            Transporte
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/solicitacoes">Solicitações</a></li>

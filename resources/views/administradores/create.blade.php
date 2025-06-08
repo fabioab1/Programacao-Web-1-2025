@@ -33,7 +33,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="password" class="form-label">Solicite que o administrador informe sua senha:</label>
+        <label for="password" class="form-label">Senha:</label>
         <input type="password" id="password" name="password" class="form-control" required="">
     </div>
 

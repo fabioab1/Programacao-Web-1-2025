@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('logradouro', 60);
             $table->string('bairro', 50);
+            $table->string('numero')->nullable();
             $table->string('referencia', 255);
             $table->timestamps();
         });
