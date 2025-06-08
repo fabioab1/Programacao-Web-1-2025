@@ -41,7 +41,7 @@ class CadastroPacienteController extends Controller
                 'stack' => $e->getTraceAsString(),
                 'request' => $request->all()
             ]);
-            return redirect()->route('pacientes.index')
+            return redirect()->route('cadastro-paciente')
                 ->with('erro', 'Erro ao cadastrar o paciente!');
         }
     }

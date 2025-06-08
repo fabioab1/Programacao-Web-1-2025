@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ponto;
+use App\Models\PontosViagem;
 use App\Models\Solicitacao;
+use App\Models\Viagem;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +18,8 @@ class SolicitacaoController extends Controller
      */
     public function index()
     {
-        $solicitacoes = Solicitacao::with('ponto')->get();
+        $solicitacoes = Solicitacao::with('ponto', 'viagem')
+            ->get();
         return view("solicitacoes.index", compact('solicitacoes'));
     }
 
@@ -57,9 +60,20 @@ class SolicitacaoController extends Controller
      */
     public function show(string $id)
     {
-        $solicitacao = Solicitacao::findOrFail($id);
+        $solicitacao = Solicitacao::with(['viagem.cidade', 'viagem.motorista', 'viagem.motorista', 'viagem.veiculo'])->findOrFail($id);
         $pontos = Ponto::all();
-        return view("solicitacoes.show", compact('solicitacao', 'pontos'));
+
+        $pontosViagem = null;
+
+        if ($solicitacao->viagem_id)
+        {
+            $viagemId = $solicitacao->viagem_id;
+            $pontosViagem = PontosViagem::with('ponto', 'viagem')
+                ->where('viagem_id', $viagemId)
+                ->get();
+        }
+
+        return view("solicitacoes.show", compact('solicitacao', 'pontos', 'pontosViagem'));
     }
 
     /**
@@ -115,6 +129,28 @@ class SolicitacaoController extends Controller
                 'ponto_id' => $id
             ]);
             return redirect()->route('solicitacoes.index')->with('erro', 'Erro ao deletar a solicitação!');
+        }
+    }
+
+    public function reenviar(string $id)
+    {
+        try {
+            Solicitacao::findOrFail($id)->update([
+                'situacao' => 'Aguardando análise',
+                'motivo' => null,
+                'viagem_id' => null
+            ]);
+
+            return redirect()->route('solicitacoes.index')
+                ->with('sucesso', 'Solicitação reenviada!');
+        } catch (Exception $e) {
+            Log::error('Erro ao reenviar a solicitação: ' . $e->getMessage(), [
+                'stack' => $e->getTraceAsString(),
+                'solicitacao_id' => $id,
+            ]);
+
+            return redirect()->route('solicitacoes.index')
+                ->with('erro', 'Erro ao reenviar a solicitação!');
         }
     }
 }
