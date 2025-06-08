@@ -76,6 +76,18 @@
                             </div>
                             <div class="modal-body">
                                 Deseja aceitar esta solicitação?
+
+                                <div class="mb-3 mt-3">
+                                    <label for="cidade" class="form-label">Selecione a viagem:</label>
+                                    <select id="cidade" name="id_cidade" class="form-select" required="">
+                                        @foreach ($viagens as $v)
+                                        <option value="{{ $v->id }}">
+                                            {{ $v->cidade }} - {{ $v->motorista }} - {{ $v->veiculo }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success">Sim, aceitar</button>
@@ -104,7 +116,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger">Sim, recusar</button>
+                                <button type="submit" class="btn btn-danger">Recusar</button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>

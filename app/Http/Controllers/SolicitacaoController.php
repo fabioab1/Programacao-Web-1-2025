@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ponto;
 use App\Models\Solicitacao;
+use App\Models\Viagem;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +17,8 @@ class SolicitacaoController extends Controller
      */
     public function index()
     {
-        $solicitacoes = Solicitacao::with('ponto')->get();
+        $solicitacoes = Solicitacao::with('ponto', 'viagem')
+            ->get();
         return view("solicitacoes.index", compact('solicitacoes'));
     }
 
@@ -57,8 +59,9 @@ class SolicitacaoController extends Controller
      */
     public function show(string $id)
     {
-        $solicitacao = Solicitacao::findOrFail($id);
+        $solicitacao = Solicitacao::with(['viagem.cidade', 'viagem.motorista', 'viagem.motorista', 'viagem.veiculo'])->findOrFail($id);
         $pontos = Ponto::all();
+
         return view("solicitacoes.show", compact('solicitacao', 'pontos'));
     }
 

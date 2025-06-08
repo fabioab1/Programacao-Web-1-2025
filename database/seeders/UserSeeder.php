@@ -36,6 +36,13 @@ class UserSeeder extends Seeder
             'role' => 'PAC', // 'role' => 'ADM',
         ]);
 
+        User::create([
+            'name' => 'Ana',
+            'email' => 'ana@email.com',
+            'password' => Hash::make('123456'),
+            'role' => 'PAC',
+        ]);
+
         Administradores::create([
             'nome' => 'Administrador',
             'cargo_id' => 1,

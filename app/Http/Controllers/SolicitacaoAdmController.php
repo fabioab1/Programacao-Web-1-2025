@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ponto;
 use App\Models\Solicitacao;
+use App\Models\Viagem;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -17,15 +18,17 @@ class SolicitacaoAdmController extends Controller
     public function exibir()
     {
         $solicitacoes = Solicitacao::with('ponto', 'user')->get();
-        return view("solicitacoes-adm.index", compact('solicitacoes'));
+        $viagens = Viagem::all();
+        return view("solicitacoes-adm.index", compact('solicitacoes', 'viagens'));
     }
 
-    public function aceitar(string $id)
+    public function aceitar(Request $request, string $id)
     {
         try {
             Solicitacao::findOrFail($id)->update([
                 'situacao' => 'Solicitação aceita',
                 'motivo' => null,
+                'viagem_id' => $request->viagem_id
             ]);
 
             return redirect()->route('solicitacoes-adm')
@@ -34,6 +37,7 @@ class SolicitacaoAdmController extends Controller
             Log::error('Erro ao aceitar a solicitação: ' . $e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
                 'solicitacao_id' => $id,
+                'viagem_id' => $request->viagem_id
             ]);
             return redirect()->route('solicitacoes-adm')
                 ->with('erro', 'Erro ao aceitar a solicitação!');
@@ -45,7 +49,8 @@ class SolicitacaoAdmController extends Controller
         try {
             Solicitacao::findOrFail($id)->update([
                 'situacao' => 'Solicitação recusada',
-                'motivo' => $request->motivo
+                'motivo' => $request->motivo,
+                'viagem_id' => null
             ]);
 
             return redirect()->route('solicitacoes-adm')

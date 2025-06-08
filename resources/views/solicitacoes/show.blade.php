@@ -2,6 +2,37 @@
 
 @section('conteudo')
 
+@if ($solicitacao->viagem)
+    <hr>
+    <h3>Informações da viagem agendada</h3>
+
+    <p><strong>Cidade de destino:</strong> {{ $solicitacao->viagem->cidade->nome }}</p>
+
+    <p><strong>Dias da semana:</strong>
+        @php
+            $dias = [];
+            if($solicitacao->viagem->domingo) $dias[] = 'Domingo';
+            if($solicitacao->viagem->segunda) $dias[] = 'Segunda-feira';
+            if($solicitacao->viagem->terca) $dias[] = 'Terça-feira';
+            if($solicitacao->viagem->quarta) $dias[] = 'Quarta-feira';
+            if($solicitacao->viagem->quinta) $dias[] = 'Quinta-feira';
+            if($solicitacao->viagem->sexta) $dias[] = 'Sexta-feira';
+            if($solicitacao->viagem->sabado) $dias[] = 'Sábado';
+        @endphp
+        {{ count($dias) > 0 ? implode(', ', $dias) : '---' }}
+    </p>
+
+    <p><strong>Data da viagem></strong> {{ $solicitacao->viagem->data ?? '---' }}</p>
+    <p><strong>Motorista:</strong> {{ $solicitacao->viagem->motorista->nome }}</p>
+    <p><strong>Veículo:</strong> {{ $solicitacao->viagem->veiculo->placa }} - {{ $solicitacao->veiculo->modelo }} </p>
+    <p><strong>Horário de embarque:</strong> {{ $solicitacao->viagem->horario_embarque }}</p>
+    <p><strong>Horário de saída:</strong> {{ $solicitacao->viagem->horario_saida }}</p>
+    <p><strong>Horário estimado de chegada:</strong> {{ $solicitacao->viagem->horario_chegada }}</p>
+
+    <h4>Pontos da viagem</h4>
+
+@endif
+
 <form method="post" action="/solicitacoes/{{ $solicitacao->id }}">
 
     @csrf
