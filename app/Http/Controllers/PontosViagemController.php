@@ -38,17 +38,18 @@ class PontosViagemController extends Controller
     }
     
     public function destroy(string $id) {
+        $pontoViagem = PontosViagem::findOrFail($id);
+        $viagemId = $pontoViagem->viagem_id;
         try {
-            $pontoViagem = PontosViagem::findOrFail($id);
             $pontoViagem->delete();
-            return redirect()->route('vpontos', 'id')
+            return redirect()->route('vpontos', ['id' => $viagemId])
                 ->with('sucesso', 'Ponto removido com sucesso!');
         } catch (Exception $e) {
             Log::error('Erro ao remover o ponto: ' . $e->getMessage(), [
                 'stack' => $e->getTraceAsString(),
                 'pontov_id' => $id
             ]);
-            return redirect()->route('vpontos', 'id')
+            return redirect()->route('vpontos', 'viagemId')
                 ->with('erro', 'Erro ao remover!');
         } 
     }

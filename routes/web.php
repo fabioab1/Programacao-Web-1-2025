@@ -61,7 +61,7 @@ Route::get('/pontos-viagem/{id}', [PontosViagemController::class, 'pontosv'])
 Route::post('/pontos-viagem/adicionar', [PontosViagemController::class, 'store'])
     ->middleware(RoleAdmMiddleware::class);
 
-Route::put('/pontos-viagem/remover/{id}', [PontosViagemController::class, 'destroy'])
+Route::delete('/pontos-viagem/remover/{id}', [PontosViagemController::class, 'destroy'])
     ->middleware(RoleAdmMiddleware::class);
 
 Route::middleware("auth")->group(function () {

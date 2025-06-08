@@ -60,7 +60,13 @@
                 <td>{{ $pv->ponto->referencia }}</td>
                 <td>{{ $pv->tipo_ponto == 0 ? "Embarque" : "Desembarque" }}</td>
                 <td>
-                    <a href="#" class="btn btn-danger">Remover</a>
+                    <form action="/pontos-viagem/remover/{{ $pv->id }}" method="POST" style="display:inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                            Remover
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach

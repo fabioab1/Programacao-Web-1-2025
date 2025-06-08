@@ -60,7 +60,7 @@ class ViagemController extends Controller
         $cidades = Cidade::all();
         $motoristas = Motorista::all();
         $veiculos = Veiculo::all();
-        return view("viagens.edit", compact('viagem', 'cidades', 'motoristas', 'veiculos'));
+        return view("viagens.show", compact('viagem', 'cidades', 'motoristas', 'veiculos'));
     }
 
     /**
