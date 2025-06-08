@@ -8,15 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Solicitacao extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_usuario', 'data', 'destino', 'ponto_id', 'nome_acompanhante', 'cpf_acompanhante', 'foto', 'situacao'];
+    protected $fillable = ['id_usuario', 'data', 'cidade', 'destino', 'ponto_id', 'nome_acompanhante', 'cpf_acompanhante', 'foto', 'situacao', 'viagem_id', 'motivo'];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_usuario');
     }
 
     public function ponto()
     {
         return $this->belongsTo(Ponto::class);
+    }
+
+    public function viagem()
+    {
+        return $this->belongsTo(Viagem::class);
     }
 }

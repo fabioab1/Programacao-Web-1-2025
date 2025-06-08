@@ -13,6 +13,11 @@
     </div>
 
     <div class="mb-3">
+        <label for="cidade" class="form-label">Cidade de destino:</label>
+        <input type="text" id="cidade" name="cidade" value="{{ $solicitacao->cidade }}" class="form-control" required="" disabled>
+    </div>
+
+    <div class="mb-3">
         <label for="destino" class="form-label">Local da consulta:</label>
         <input type="text" id="destino" name="destino" value="{{ $solicitacao->destino }}" class="form-control" required="" disabled>
     </div>
@@ -46,7 +51,7 @@
     </div>
 
     <p>Deseja excluir o registro?</p>
-    <button type="submit" class="btn btn-danger">Excluir</button>
+    <button type="submit" class="btn btn-danger" {{ $solicitacao->situacao == "Solicitação aceita" ? "disabled" : "" }}>Excluir</button>
     <a href="/solicitacoes" class="btn btn-primary">Cancelar</a>
 </form>
 

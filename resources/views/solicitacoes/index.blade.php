@@ -24,6 +24,7 @@
     <thead>
         <tr>
             <th>Data da viagem</th>
+            <th>Cidade</th>
             <th>Destino</th>
             <th>Ponto de embarque</th>
             <th>Nome do acompanhante</th>
@@ -39,6 +40,7 @@
             @if ($s->id_usuario == Auth::user()->id)
                 <tr>
                     <td>{{ $s->data }}</td>
+                    <td>{{ $s->cidade }}</td>
                     <td>{{ $s->destino }}</td>
                     <td>{{ $s->ponto->referencia }}</td>
                     <td>{{ isset($s->nome_acompanhante) ? "$s->nome_acompanhante" : "" }}</td>
@@ -48,7 +50,7 @@
                             <p><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Solicitação recusada</a></p>
                         @endif
                         @if ($s->situacao == "Solicitação aceita")
-                            <p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Solicitação recusada</a></p>
+                            <p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Solicitação aceita</a></p>
                         @endif
                         @if ($s->situacao == "Aguardando análise")
                             <p><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aguardando análise</a></p>
@@ -57,15 +59,15 @@
                     <td> <img src="{{ asset('storage/'.$s->foto) }}" height="50"/> </td>
                     <td>
                         @if ($s->situacao == "Aguardando análise")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled">Editar</a>
+                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled mb-1">Editar</a>
                         @endif
                         @if ($s->situacao == "Solicitação aceita")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled">Editar</a>
+                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled mb-1">Editar</a>
                         @endif
                         @if ($s->situacao == "Solicitação recusada")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning">Editar</a>
+                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning mb-1">Editar</a>
                         @endif
-                        <a href="/solicitacoes/{{ $s->id }}" class="btn btn-info">Consultar</a>
+                        <a href="/solicitacoes/{{ $s->id }}" class="btn btn-info mb-1">Consultar</a>
                     </td>
                 </tr>
             @endif
