@@ -26,6 +26,7 @@
 			<th>ID</th>
 			<th>Logradouro</th>
 			<th>Bairro</th>
+			<th>Nº</th>
 			<th>Referência</th>
 			<th>Ações</th>
 		</tr>
@@ -37,6 +38,7 @@
 			<td>{{ $p->id }}</td>
 			<td>{{ $p->logradouro }}</td>
 			<td>{{ $p->bairro }}</td>
+			<td>{{ $p->numero }}</td>
 			<td>{{ $p->referencia }}</td>
 			<td>
 				<a href="/pontos/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>

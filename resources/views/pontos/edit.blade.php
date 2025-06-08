@@ -18,6 +18,11 @@
 	</div>
 
 	<div class="mb-3">
+		<label for="numero" class="form-label">Nº:</label>
+		<input type="text" id="numero" name="numero" class="form-control" maxlength="50">
+	</div>
+
+	<div class="mb-3">
 		<label for="referencia" class="form-label">Referência:</label>
 		<textarea id="referencia" name="referencia" class="form-control" required="">{{ $ponto->referencia }}</textarea>
 	</div>

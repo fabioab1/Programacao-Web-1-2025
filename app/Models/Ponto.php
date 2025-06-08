@@ -11,6 +11,7 @@ class Ponto extends Model
     protected $fillable = [
         'logradouro',
         'bairro',
+        'numero',
         'referencia',
     ];
 }

@@ -13,10 +13,13 @@ use App\Http\Controllers\CargoController;
 use App\Http\Controllers\PontoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\EditarMotoristaController;
+use App\Http\Controllers\PontosViagemController;
 use App\Http\Controllers\SolicitacaoController;
+use App\Http\Controllers\ViagemController;
 use App\Http\Middleware\RoleAdmMiddleware;
 use App\Http\Middleware\RoleMotMiddleware;
 use App\Http\Middleware\RolePacMiddleware;
+use App\Models\PontosViagem;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +54,15 @@ Route::get('/alterar-dados/admin/{id}', [AlterarAdminController::class, 'edit'])
 Route::put('/alterar-dados/admin/update/{id}', [AlterarAdminController::class, 'update'])
     ->middleware(RoleAdmMiddleware::class);
 
+Route::get('/pontos-viagem/{id}', [PontosViagemController::class, 'pontosv'])
+    ->name('vpontos')
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::post('/pontos-viagem/adicionar', [PontosViagemController::class, 'store'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::delete('/pontos-viagem/remover/{id}', [PontosViagemController::class, 'destroy'])
+    ->middleware(RoleAdmMiddleware::class);
 
 Route::middleware("auth")->group(function () {
     
@@ -67,6 +79,7 @@ Route::middleware("auth")->group(function () {
         Route::resource('cargos', CargoController::class);
         Route::resource('pontos', PontoController::class);
         Route::resource('pacientes', PacienteController::class);
+        Route::resource('viagens', ViagemController::class);
     });
     
     Route::middleware([RoleMotMiddleware::class])->group(function (){

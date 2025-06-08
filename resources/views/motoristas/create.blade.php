@@ -21,6 +21,11 @@
         <input type="email" id="email" name="email" class="form-control" required="">
     </div>
 
+    <div class="mb-3">
+        <label for="password" class="form-label">Senha:</label>
+        <input type="password" id="password" name="password" class="form-control" required="">
+    </div>
+
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 
