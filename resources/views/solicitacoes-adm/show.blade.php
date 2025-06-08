@@ -65,9 +65,30 @@
         <hr>
         <h6 class="mb-3">Pontos da viagem</h6>
 
-        <!-- {{-- Aqui você pode adicionar a tabela dos pontos associados --}}
-        {{-- Exemplo: --}}
-        {{-- @include('partials.tabela-pontos', ['pontosViagem' => $pontosViagem]) --}} -->
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Logradouro</th>
+                    <th>Bairro</th>
+                    <th>Nº</th>
+                    <th>Referência</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pontosViagem as $pv)
+                <tr>
+                    <td>{{ $pv->ponto->logradouro }}</td>
+                    <td>{{ $pv->ponto->bairro }}</td>
+                    <td>{{ $pv->ponto->numero }}</td>
+                    <td>{{ $pv->ponto->referencia }}</td>
+                    <td>{{ $pv->tipo_ponto == 0 ? "Embarque" : "Desembarque" }}</td>
+                    <td>
+                </tr>
+                @endforeach
+
+            </tbody>
+        </table>
 
     </div>
 </div>

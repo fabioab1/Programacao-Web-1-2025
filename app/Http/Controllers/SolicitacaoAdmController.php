@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ponto;
+use App\Models\PontosViagem;
 use App\Models\Solicitacao;
 use App\Models\Viagem;
 use Exception;
@@ -71,7 +72,17 @@ class SolicitacaoAdmController extends Controller
     {
         $solicitacao = Solicitacao::with(['viagem.cidade', 'viagem.motorista', 'viagem.motorista', 'viagem.veiculo'])->findOrFail($id);
         $pontos = Ponto::all();
+        
+        $pontosViagem = null;
 
-        return view("solicitacoes-adm.show", compact('solicitacao', 'pontos'));
+        if ($solicitacao->viagem_id)
+        {
+            $viagemId = $solicitacao->viagem_id;
+            $pontosViagem = PontosViagem::with('ponto', 'viagem')
+                ->where('viagem_id', $viagemId)
+                ->get();
+        }
+
+        return view("solicitacoes-adm.show", compact('solicitacao', 'pontos', 'pontosViagem'));
     }
 }
