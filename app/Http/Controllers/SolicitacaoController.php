@@ -120,4 +120,26 @@ class SolicitacaoController extends Controller
             return redirect()->route('solicitacoes.index')->with('erro', 'Erro ao deletar a solicitação!');
         }
     }
+
+    public function reenviar(string $id)
+    {
+        try {
+            Solicitacao::findOrFail($id)->update([
+                'situacao' => 'Aguardando análise',
+                'motivo' => null,
+                'viagem_id' => null
+            ]);
+
+            return redirect()->route('solicitacoes.index')
+                ->with('sucesso', 'Solicitação reenviada!');
+        } catch (Exception $e) {
+            Log::error('Erro ao reenviar a solicitação: ' . $e->getMessage(), [
+                'stack' => $e->getTraceAsString(),
+                'solicitacao_id' => $id,
+            ]);
+
+            return redirect()->route('solicitacoes.index')
+                ->with('erro', 'Erro ao reenviar a solicitação!');
+        }
+    }
 }

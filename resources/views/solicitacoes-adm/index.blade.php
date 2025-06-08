@@ -78,11 +78,11 @@
                                 Deseja aceitar esta solicitação?
 
                                 <div class="mb-3 mt-3">
-                                    <label for="cidade" class="form-label">Selecione a viagem:</label>
-                                    <select id="cidade" name="id_cidade" class="form-select" required="">
+                                    <label for="viagem" class="form-label">Selecione a viagem:</label>
+                                    <select id="viagem" name="viagem_id" class="form-select" required="">
                                         @foreach ($viagens as $v)
                                         <option value="{{ $v->id }}">
-                                            {{ $v->cidade }} - {{ $v->motorista }} - {{ $v->veiculo }}
+                                            {{ $v->cidade->nome }} - {{ $v->motorista->nome }} - {{ $v->veiculo->placa }} - {{ $v->veiculo->modelo }}
                                         </option>
                                         @endforeach
                                     </select>

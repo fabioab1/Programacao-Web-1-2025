@@ -28,7 +28,7 @@ class SolicitacaoAdmController extends Controller
             Solicitacao::findOrFail($id)->update([
                 'situacao' => 'Solicitação aceita',
                 'motivo' => null,
-                'viagem_id' => $request->viagem_id
+                'viagem_id' => $request->input('viagem_id')
             ]);
 
             return redirect()->route('solicitacoes-adm')

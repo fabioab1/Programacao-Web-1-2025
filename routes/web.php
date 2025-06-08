@@ -74,6 +74,9 @@ Route::put('/aceitar-solicitacoes/aceitar/{id}', [SolicitacaoAdmController::clas
 
 Route::put('/aceitar-solicitacoes/recusar/{id}', [SolicitacaoAdmController::class, 'recusar'])
     ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/solicitacoes/reenviar/{id}', [SolicitacaoController::class, 'reenviar'])
+    ->middleware(RolePacMiddleware::class);
     
 Route::middleware("auth")->group(function () {
     
