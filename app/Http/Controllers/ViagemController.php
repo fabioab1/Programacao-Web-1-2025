@@ -9,6 +9,7 @@ use App\Models\Viagem;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class ViagemController extends Controller
 {
