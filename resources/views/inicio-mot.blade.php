@@ -7,13 +7,13 @@
 
  <div class="mt-3 d-flex gap-2">
     <a href="/relatorio-viagens" class="btn btn-primary">Ver minhas viagens</a>
-    <a href="{{ route('motorista.pacientes') }}" class="btn btn-primary">Relatório de Pacientes</a>
+    <a href="{{ route('motorista.pacientes') }}" class="btn btn-primary">Pacientes passageiros</a>
 </div>
 
     <div class="mt-4">
         <h3>Instruções</h3>
         <p>Para acessar as informações de suas viagens, clique no botão "Ver minhas viagens".</p>
-        <p>Para visualizar o relatório de pacientes vinculados às suas viagens, clique no botão "Relatório de Pacientes".</p>
+        <p>Para visualizar os pacientes vinculados às suas viagens, clique no botão "Pacientes passageiros".</p>
     </div>  
 
 @endsection
