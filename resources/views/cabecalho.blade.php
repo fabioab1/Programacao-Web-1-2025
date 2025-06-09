@@ -31,7 +31,7 @@
                             <li><a class="dropdown-item" href="/cidades">Cidades</a></li>
                             <li><a class="dropdown-item" href="/veiculos">Veiculos</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/veiculos">Solicitações</a></li>
+                            <li><a class="dropdown-item" href="/solicitacoes">Solicitações</a></li>
                             <li><a class="dropdown-item" href="/viagens">Viagens</a></li>
                         </ul>
                     </li>

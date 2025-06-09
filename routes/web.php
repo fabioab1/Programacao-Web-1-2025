@@ -16,6 +16,7 @@ use App\Http\Controllers\EditarMotoristaController;
 use App\Http\Controllers\PontosViagemController;
 use App\Http\Controllers\SolicitacaoController;
 use App\Http\Controllers\ViagemController;
+use App\Http\Controllers\HomeMotController;
 use App\Http\Middleware\RoleAdmMiddleware;
 use App\Http\Middleware\RoleMotMiddleware;
 use App\Http\Middleware\RolePacMiddleware;
@@ -80,12 +81,16 @@ Route::middleware("auth")->group(function () {
         Route::resource('pontos', PontoController::class);
         Route::resource('pacientes', PacienteController::class);
         Route::resource('viagens', ViagemController::class);
+
     });
     
     Route::middleware([RoleMotMiddleware::class])->group(function (){
         Route::get('/inicio-mot', function() {
             return view('inicio-mot');
         });
+        Route::get('/relatorio-viagens', [HomeMotController::class, 'relatorioViagens'])->name('motorista.viagens');
+        Route::get('/relatorio-pacientes', [HomeMotController::class, 'relatorioPacientes'])->name('motorista.pacientes');
+
     });
 
     Route::middleware([RolePacMiddleware::class])->group(function (){
