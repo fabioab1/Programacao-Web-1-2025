@@ -17,6 +17,7 @@ use App\Http\Controllers\PontosViagemController;
 use App\Http\Controllers\SolicitacaoController;
 use App\Http\Controllers\ViagemController;
 use App\Http\Controllers\HomeMotController;
+use App\Http\Controllers\SolicitacaoAdmController;
 use App\Http\Middleware\RoleAdmMiddleware;
 use App\Http\Middleware\RoleMotMiddleware;
 use App\Http\Middleware\RolePacMiddleware;
@@ -65,6 +66,22 @@ Route::post('/pontos-viagem/adicionar', [PontosViagemController::class, 'store']
 Route::delete('/pontos-viagem/remover/{id}', [PontosViagemController::class, 'destroy'])
     ->middleware(RoleAdmMiddleware::class);
 
+Route::get('/aceitar-solicitacoes', [SolicitacaoAdmController::class, 'exibir'])
+    ->name('solicitacoes-adm')
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/aceitar-solicitacoes/aceitar/{id}', [SolicitacaoAdmController::class, 'aceitar'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/aceitar-solicitacoes/recusar/{id}', [SolicitacaoAdmController::class, 'recusar'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::get('/aceitar-solicitacoes/consultar/{id}', [SolicitacaoAdmController::class, 'consultar'])
+    ->middleware(RoleAdmMiddleware::class);
+
+Route::put('/solicitacoes/reenviar/{id}', [SolicitacaoController::class, 'reenviar'])
+    ->middleware(RolePacMiddleware::class);
+    
 Route::middleware("auth")->group(function () {
     
     Route::post('/logout', [AuthController::class, 'logout']);

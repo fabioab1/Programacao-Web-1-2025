@@ -14,6 +14,11 @@
     </div>
 
     <div class="mb-3">
+        <label for="cidade" class="form-label">Cidade de destino:</label>
+        <input type="text" id="cidade" name="cidade" class="form-control" required="">
+    </div>
+
+    <div class="mb-3">
         <label for="destino" class="form-label">Local da consulta:</label>
         <input type="text" id="destino" name="destino" class="form-control" required="">
     </div>

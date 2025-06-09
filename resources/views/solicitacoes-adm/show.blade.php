@@ -42,22 +42,22 @@
 
         <div class="mb-2">
             @php
-            $dias = [];
-            if($solicitacao->viagem->domingo) $dias[] = 'Domingo';
-            if($solicitacao->viagem->segunda) $dias[] = 'Segunda-feira';
-            if($solicitacao->viagem->terca) $dias[] = 'Terça-feira';
-            if($solicitacao->viagem->quarta) $dias[] = 'Quarta-feira';
-            if($solicitacao->viagem->quinta) $dias[] = 'Quinta-feira';
-            if($solicitacao->viagem->sexta) $dias[] = 'Sexta-feira';
-            if($solicitacao->viagem->sabado) $dias[] = 'Sábado';
+                $dias = [];
+                if($solicitacao->viagem->domingo) $dias[] = 'Domingo';
+                if($solicitacao->viagem->segunda) $dias[] = 'Segunda-feira';
+                if($solicitacao->viagem->terca) $dias[] = 'Terça-feira';
+                if($solicitacao->viagem->quarta) $dias[] = 'Quarta-feira';
+                if($solicitacao->viagem->quinta) $dias[] = 'Quinta-feira';
+                if($solicitacao->viagem->sexta) $dias[] = 'Sexta-feira';
+                if($solicitacao->viagem->sabado) $dias[] = 'Sábado';
             @endphp
             <p><strong>Dias da semana:</strong>
                 @if (count($dias) > 0)
-                @foreach ($dias as $dia)
-                <span class="badge bg-secondary me-1">{{ $dia }}</span>
-                @endforeach
+                    @foreach ($dias as $dia)
+                        <span class="badge bg-secondary me-1">{{ $dia }}</span>
+                    @endforeach
                 @else
-                ---
+                    ---
                 @endif
             </p>
         </div>
@@ -95,10 +95,9 @@
 @endif
 
 
-<form method="post" action="/solicitacoes/{{ $solicitacao->id }}">
+<form method="post">
 
     @csrf
-    @method('DELETE')
 
     <div class="mb-3">
         <label for="data" class="form-label">Data da viagem:</label>
@@ -159,9 +158,7 @@
     </div>
     @endif
 
-    <p>Deseja excluir o registro?</p>
-    <button type="submit" class="btn btn-danger" {{ $solicitacao->situacao == "Solicitação aceita" ? "disabled" : "" }}>Excluir</button>
-    <a href="/solicitacoes" class="btn btn-primary">Cancelar</a>
+    <a href="/aceitar-solicitacoes" class="btn btn-primary">Voltar</a>
 </form>
 
 @endsection
