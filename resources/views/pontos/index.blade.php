@@ -41,8 +41,14 @@
 			<td>{{ $p->numero }}</td>
 			<td>{{ $p->referencia }}</td>
 			<td>
-				<a href="/pontos/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
-				<a href="/pontos/{{ $p->id }}" class="btn btn-info">Consultar</a>
+				<div class="btn-group" role="group">
+					<a href="/pontos/{{ $p->id }}/edit" class="btn btn-sm btn-warning" title="Editar">
+						Editar
+					</a>
+					<a href="/pontos/{{ $p->id }}" class="btn btn-sm btn-info" title="Consultar">
+						Consultar
+					</a>
+				</div>
 			</td>
 		</tr>
 

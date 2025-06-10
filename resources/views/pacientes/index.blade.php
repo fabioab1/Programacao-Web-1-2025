@@ -52,10 +52,16 @@
             <td>{{ $p->numero }}</td>
             <td>{{ $p->bairro }}</td>
             <td>{{ $p->cidade }}</td>
-            <td>
-                <a href="/pacientes/{{ $p->id }}/edit" class="btn btn-warning mb-1">Editar</a>
-                <a href="/pacientes/{{ $p->id }}" class="btn btn-info">Consultar</a>
-            </td>
+			<td>
+				<div class="btn-group" role="group">
+					<a href="/pacientes/{{ $p->id }}/edit" class="btn btn-sm btn-warning" title="Editar">
+						Editar
+					</a>
+					<a href="/pacientes/{{ $p->id }}" class="btn btn-sm btn-info" title="Consultar">
+						Consultar
+					</a>
+				</div>
+			</td>
         </tr>
 
         @endforeach

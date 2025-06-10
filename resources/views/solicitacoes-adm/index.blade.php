@@ -56,13 +56,28 @@
                     @endif
                 </td>
                 <td>
-                    <button class="btn btn-success mb-1" data-bs-toggle="modal" data-bs-target="#modalAceitar{{ $s->id }}" {{ $s->situacao == "Solicitação aceita" ? "disabled" : "" }}>
-                        Aceitar
-                    </button>
-                    <button class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#modalRecusar{{ $s->id }}" {{ $s->situacao == "Solicitação recusada" ? "disabled" : "" }}>
-                        Recusar
-                    </button>
-                    <a href="/aceitar-solicitacoes/consultar/{{ $s->id }}" class="btn btn-secondary mb-1">Ver detalhes</a>
+                    <div class="btn-group" role="group">
+                        <button type="button"
+                                class="btn btn-sm btn-success"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalAceitar{{ $s->id }}"
+                                {{ $s->situacao == "Solicitação aceita" ? "disabled" : "" }}>
+                            Aceitar
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-sm btn-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalRecusar{{ $s->id }}"
+                                {{ $s->situacao == "Solicitação recusada" ? "disabled" : "" }}>
+                            Recusar
+                        </button>
+
+                        <a href="/aceitar-solicitacoes/consultar/{{ $s->id }}"
+                        class="btn btn-sm btn-info">
+                            Consultar
+                        </a>
+                    </div>
                 </td>
             </tr>
 
@@ -159,7 +174,7 @@
                 </div>
                 <div class="modal-body">
 
-                    A solicitação foi aceita e atribuída a uma viagem.
+                    <p class="mb-2">A solicitação foi aceita e atribuída a uma viagem.</p>
 
                     <hr>
                     <p><strong>Última atualização:</strong> {{ $s->updated_at->format('d/m/Y H:i') }}</p>

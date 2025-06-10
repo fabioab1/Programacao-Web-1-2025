@@ -38,10 +38,16 @@
             <td>{{ $m->nome }}</td>
             <td>{{ $m->celular }}</td>
             <td>{{ $m->email }}</td>
-            <td>
-                <a href="/motoristas/{{ $m->id }}/edit" class="btn btn-warning">Editar</a>
-                <a href="/motoristas/{{ $m->id }}" class="btn btn-info">Consultar</a>
-            </td>
+			<td>
+				<div class="btn-group" role="group">
+					<a href="/motoristas/{{ $m->id }}/edit" class="btn btn-sm btn-warning" title="Editar">
+						Editar
+					</a>
+					<a href="/motoristas/{{ $m->id }}" class="btn btn-sm btn-info" title="Consultar">
+						Consultar
+					</a>
+				</div>
+			</td>
         </tr>
 
         @endforeach

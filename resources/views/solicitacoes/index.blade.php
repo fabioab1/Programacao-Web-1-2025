@@ -62,16 +62,24 @@
                     </td>
                     <td> <img src="{{ asset('storage/'.$s->foto) }}" height="50"/> </td>
                     <td>
-                        @if ($s->situacao == "Aguardando análise")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled mb-1">Editar</a>
-                        @endif
-                        @if ($s->situacao == "Solicitação aceita")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning disabled mb-1">Editar</a>
-                        @endif
-                        @if ($s->situacao == "Solicitação recusada")
-                            <a href="/solicitacoes/{{ $s->id }}/edit" class="btn btn-warning mb-1">Editar</a>
-                        @endif
-                        <a href="/solicitacoes/{{ $s->id }}" class="btn btn-info mb-1">Consultar</a>
+                        <div class="btn-group" role="group">
+                            @php
+                                $desativar = in_array($s->situacao, ["Aguardando análise", "Solicitação aceita"]);
+                            @endphp
+
+                            <a href="{{ $desativar ? '#' : '/solicitacoes/' . $s->id . '/edit' }}"
+                            class="btn btn-sm btn-warning {{ $desativar ? 'disabled' : '' }}"
+                            title="Editar"
+                            {{ $desativar ? 'tabindex="-1" aria-disabled="true"' : '' }}>
+                                Editar
+                            </a>
+
+                            <a href="/solicitacoes/{{ $s->id }}"
+                            class="btn btn-sm btn-info"
+                            title="Consultar">
+                                Consultar
+                            </a>
+                        </div>
                     </td>
                 </tr>
 

@@ -10,6 +10,11 @@ class Solicitacao extends Model
     use HasFactory;
     protected $fillable = ['id_usuario', 'data', 'cidade', 'destino', 'ponto_id', 'nome_acompanhante', 'cpf_acompanhante', 'foto', 'situacao', 'viagem_id', 'motivo'];
 
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class, 'id_usuario', 'user_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_usuario');

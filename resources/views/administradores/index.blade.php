@@ -41,7 +41,9 @@
             <td>{{ $a->celular }}</td>
             <td>{{ $a->email }}</td>
             <td>
-                <a href="/administradores/{{ $a->id }}" class="btn btn-info">Consultar</a>
+                <a href="/administradores/{{ $a->id }}" class="btn btn-sm btn-info" title="Consultar">
+                    Consultar
+                </a>
             </td>
         </tr>
 

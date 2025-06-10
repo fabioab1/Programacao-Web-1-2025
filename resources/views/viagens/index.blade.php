@@ -57,11 +57,19 @@
 			<td>{{ $v->horario_saida }}</td>
 			<td>{{ $v->horario_chegada }}</td>
 			<td>
-				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-secondary mb-1">Adicionar</a>
+				<a href="/pontos-viagem/{{ $v->id }}" class="btn btn-sm btn-secondary" title="Pontos">
+					Adicionar
+				</a>
 			</td>
 			<td>
-				<a href="/viagens/{{ $v->id }}/edit" class="btn btn-warning mb-1">Editar</a>
-				<a href="/viagens/{{ $v->id }}" class="btn btn-info mb-1">Consultar</a>
+				<div class="btn-group" role="group">
+					<a href="/viagens/{{ $v->id }}/edit" class="btn btn-sm btn-warning" title="Editar">
+						Editar
+					</a>
+					<a href="/viagens/{{ $v->id }}" class="btn btn-sm btn-info" title="Consultar">
+						Consultar
+					</a>
+				</div>
 			</td>
 		</tr>
 		@endforeach

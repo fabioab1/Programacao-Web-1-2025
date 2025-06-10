@@ -50,8 +50,14 @@
 			<td>{{ $veiculo->capacidade }}</td>
 			<td>{{ $veiculo->situacao }}</td>
 			<td>
-				<a href="/veiculos/{{ $veiculo->id }}/edit" class="btn btn-warning">Editar</a>
-				<a href="/veiculos/{{ $veiculo->id }}" class="btn btn-info">Consultar</a>
+				<div class="btn-group" role="group">
+					<a href="/veiculos/{{ $veiculo->id }}/edit" class="btn btn-sm btn-warning" title="Editar">
+						Editar
+					</a>
+					<a href="/veiculos/{{ $veiculo->id }}" class="btn btn-sm btn-info" title="Consultar">
+						Consultar
+					</a>
+				</div>
 			</td>
 		</tr>
 		@endforeach
