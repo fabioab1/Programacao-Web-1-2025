@@ -82,7 +82,7 @@
         <p>Com interface acessível e responsiva, o sistema está disponível para todos os pacientes cadastrados no SUS.</p>
       </div>
       <div class="col-md-6">
-        <img src="{{ asset('storage/solicitacoes/ambulancia.jpeg') }}" alt="Transporte SUS" class="info-img">
+        <img src="https://images2.jaguariunense.com.br/wp-content/uploads/2025/09/img_2429-860x573-1757512255.jpg" alt="Transporte SUS" class="info-img">
       </div>
     </div>
   </section>
