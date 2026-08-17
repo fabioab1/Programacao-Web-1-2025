@@ -1,0 +1,49 @@
+
+
+Tabelas das CRUDs
+Por um Select no campo de Cidade de destino para solicitar um transporte
+
+O ponto de embarque quem deve definir é o Administrador
+
+Acompanhante: colocar uma label perguntando: Precisa de acompanhante? e por radios buttons Sim e Não, e os campos aparecem ou continuam ocultos conforme escolher a opção
+
+Barra de navegação
+Ver com o Chat a linguagem usada nas labels dos campos, e ver a estrutura dos formulários, ver se tem como agrupar ou se é melhor deixar maior com bootstrap para ficar responsivel com celular
+
+Responsividade para celular (como aplicar em todas com Bootstrap)
+
+Tela de login, cadastro (ver ap ossibilidade de após concluir o cadastro o paciente já logar imediatamente, e ver de repente trocar o campo "Cidade" por "Complemento", e agrujpar todos ou então fazer por etaps) e home
+Tela inicial do Paciente
+
+
+
+Funcionalidade de concluir viagem (ao concluir, define as solicitações como "atendidas")
+
+Gráficos e dados na dash do administrador e do motorista
+Relatórios PDF
+
+
+Notificação para o Paciente por WhatsApp
+
+
+
+
+
+
+
+
+
+Listar somente viagens com data maior ou igual a da solicitação - impedir que atribua viagens que já aconteceram
+
+
+Marcar a viagem como concluída
+
+
+
+Solicitação depois da viagem fica como atendida ou não atendida e informando o motivo
+
+
+Pensar também em separar as viagens concluídas das não concluídas e as solicitações atendidas das não atendidas
+
+
+E-mail/notificação/WhatsApp lembrando da viagem do paciente - faltou a parte da confirmação
