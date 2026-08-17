@@ -1,4 +1,4 @@
-
+Erro, opção de alterar dados e sair do cadastro n aparece
 
 Tabelas das CRUDs
 Por um Select no campo de Cidade de destino para solicitar um transporte
@@ -7,13 +7,17 @@ O ponto de embarque quem deve definir é o Administrador
 
 Acompanhante: colocar uma label perguntando: Precisa de acompanhante? e por radios buttons Sim e Não, e os campos aparecem ou continuam ocultos conforme escolher a opção
 
-Barra de navegação
-Ver com o Chat a linguagem usada nas labels dos campos, e ver a estrutura dos formulários, ver se tem como agrupar ou se é melhor deixar maior com bootstrap para ficar responsivel com celular
 
 Responsividade para celular (como aplicar em todas com Bootstrap)
 
-Tela de login, cadastro (ver ap ossibilidade de após concluir o cadastro o paciente já logar imediatamente, e ver de repente trocar o campo "Cidade" por "Complemento", e agrujpar todos ou então fazer por etaps) e home
+Home - página welcome
+
+
+Por funcionalidade de integrar pxuar os dados de endereço com base no CEP na página de cadastro do paciente e redirecionar ele para o sistema após finalizar
+
+
 Tela inicial do Paciente
+
 
 
 
