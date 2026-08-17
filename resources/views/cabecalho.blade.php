@@ -37,7 +37,6 @@
                         href="#"
                         role="button"
                         data-bs-toggle="dropdown"
-                        data-bs-auto-close="true"
                         aria-expanded="false">
                         Usuários
                     </a>
@@ -85,7 +84,6 @@
                         href="#"
                         role="button"
                         data-bs-toggle="dropdown"
-                        data-bs-auto-close="true"
                         aria-expanded="false">
                         Transporte
                     </a>
