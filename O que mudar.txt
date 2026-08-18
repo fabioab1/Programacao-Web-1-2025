@@ -1,0 +1,56 @@
+Erro, opção de alterar dados e sair do cadastro n aparece e erro do aceitar e recusar solicitações
+
+Fazer mais testes
+
+
+todas as Tabelas das CRUDs e todos forms (primeiro a do motorista e depois as dos administradores, adequar principalmente para PC esses, mas deixar mais bonito)
+Por um Select no campo de Cidade de destino para solicitar um transporte
+
+O ponto de embarque quem deve definir é o Administrador
+
+Acompanhante: colocar uma label perguntando: Precisa de acompanhante? e por radios buttons Sim e Não, e os campos aparecem ou continuam ocultos conforme escolher a opção
+
+
+Responsividade para celular (como aplicar em todas com Bootstrap)
+
+Home - página welcome
+
+
+Por funcionalidade de integrar pxuar os dados de endereço com base no CEP na página de cadastro do paciente e redirecionar ele para o sistema após finalizar
+
+
+Tela inicial do Paciente - por umas dashs etc.
+
+
+
+
+Funcionalidade de concluir viagem (ao concluir, define as solicitações como "atendidas")
+
+Gráficos e dados na dash do administrador e do motorista
+Relatórios PDF
+
+
+Notificação para o Paciente por WhatsApp
+
+
+
+
+
+
+
+
+
+Listar somente viagens com data maior ou igual a da solicitação - impedir que atribua viagens que já aconteceram
+
+
+Marcar a viagem como concluída
+
+
+
+Solicitação depois da viagem fica como atendida ou não atendida e informando o motivo
+
+
+Pensar também em separar as viagens concluídas das não concluídas e as solicitações atendidas das não atendidas
+
+
+E-mail/notificação/WhatsApp lembrando da viagem do paciente - faltou a parte da confirmação
